@@ -42,13 +42,21 @@ describe("", function () {
 
 const cart = require('../cart');
 
-describe("", function () {
-    test("", function () {
-        expect(cart("")).toBe("");
+
+// describe the cart (what you are testing)
+describe("Shopping Cart", () => {
+
+    test("should add new items to an empty cart", () => {
+        // let cart = { items: [] }; // create empty cart to add items to
+        // cart.addItem(cart, "orange", 3);
+        expect(cart.addItem(cart, "orange", 3)).toBe("items add to the cart.");
     });
 
-    test("", function () {
-        expect(cart()).toBe("");
+    test("should input quantity number as one or more", () => {
+
+        expect(cart.removeItem(cart, "pear", 2)).toBe("items removed from cart.");
     });
+
+
 });
 

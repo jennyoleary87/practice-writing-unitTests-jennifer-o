@@ -12,30 +12,39 @@ The module should include the following methods:
 ○ Create a file named cart.js and define the required methods.
 ○ Export the methods using module.exports.
 */
-let cart = [];
+
+const cart = { items: [] }; // create empty cart to add items to
 
 function addItem(cart, item, quantity) {
     // need valid item name and quantity number
     if (quantity >= 1) { // if valid quantity number
-        cart.push({ name: item, quantity }); // then add item to cart
+        cart.item.push({ name: item, quantity }); // then add item to cart
+        console.log(`${quantity} ${item} add to the cart.`);
     } else if (quantity < 1) { // if invalid quantity number
         throw new Error("Invalid quantity number"); // then display error message
     }
-
+    return [...cart.item]
 }
 
 function removeItem(cart, item) {
-    for (item of cart) {
-        if (item === Item) {
-            cart.splice(item);
-        } else {
-            return "Item not found";
-        }
-    }
+    cart.findIndex(item);
+    cart.splice(item, 1);
+    // for (item of cart) {
+    //     if (item === Item) {
+    //         cart.splice(item);
+    //     } else {
+    //         return "Item not found";
+    //     }
+    // }
+    return cart;
 }
 
 function getTotalItems(cart) {
-    return cart.length;
+    if (cart.length >= 1) {
+        return cart.length;
+    } else {
+        return "Cart is empty";
+    }
 }
 
 module.exports = { addItem, removeItem, getTotalItems };
